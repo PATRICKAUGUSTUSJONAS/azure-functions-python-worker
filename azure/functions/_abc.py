@@ -197,3 +197,58 @@ class QueueMessage(abc.ABC):
     @abc.abstractmethod
     def pop_receipt(self) -> typing.Optional[str]:
         pass
+
+
+class GridEvent(abc.ABC):
+    @property
+    @abc.abstractmethod
+    def id(self) -> typing.Optional[str]:
+        pass
+
+    @abc.abstractmethod
+    def get_json(self) -> typing.Any:
+        pass
+
+    @property
+    @abc.abstractmethod
+    def topic(self) -> typing.Optional[str]:
+        pass
+
+    @property
+    @abc.abstractmethod
+    def subject(self) -> typing.Optional[str]:
+        pass
+
+    @property
+    @abc.abstractmethod
+    def event_type(self) -> typing.Optional[str]:
+        pass
+
+    @property
+    @abc.abstractmethod
+    def event_time(self) -> datetime.datetime:
+        pass
+
+    @property
+    @abc.abstractmethod
+    def data_version(self) -> typing.Optional[str]:
+        pass
+
+
+class Document(abc.ABC):
+    @abc.abstractmethod
+    def __getitem__(self, key):
+        pass
+
+    @abc.abstractmethod
+    def __setitem__(self, key, value):
+        pass
+
+    @classmethod
+    @abc.abstractmethod
+    def from_json(cls):
+        pass
+
+
+class DocumentList(abc.ABC):
+    pass

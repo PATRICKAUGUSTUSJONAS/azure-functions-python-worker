@@ -1,0 +1,20 @@
+{
+  "scriptFile": "__init__.py",
+  "disabled": false,
+
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "eventGridTrigger",
+      "direction": "in",
+      "name": "event",
+    },
+    {
+      "type": "blob",
+      "direction": "out",
+      "name": "$return",
+      "connection": "AzureWebJobsStorage",
+      "path": "python-worker-tests/test-eventgridtrigger-blob.txt"
+    }
+  ]
+}
